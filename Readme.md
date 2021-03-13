@@ -1,6 +1,6 @@
 ## devwebdino.com personal site
 
-Ce projet est destinée à la creation du site devwebdino.com
+Ce projet est destiné à la creation du site devwebdino.com
 
 This project is done for create devwebdino.com site
 

@@ -6,62 +6,48 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            <style>
-                body {
-                    font-family: "Lato", sans-serif;
-                    transition: background-color .5s;
-                }
-
-                .sidenav {
-                    height: 100%;
-                    width: 0;
-                    position: fixed;
-                    z-index: 1;
-                    top: 0;
-                    left: 0;
-                    background-color: #111;
-                    overflow-x: hidden;
-                    transition: 0.5s;
-                    padding-top: 60px;
-                }
-
-                .sidenav a {
-                    padding: 8px 8px 8px 32px;
-                    text-decoration: none;
-                    font-size: 25px;
-                    color: #818181;
-                    display: block;
-                    transition: 0.3s;
-                }
-
-                .sidenav a:hover {
-                    color: #f1f1f1;
-                }
-
-                .sidenav .closebtn {
-                    position: absolute;
-                    top: 0;
-                    right: 25px;
-                    font-size: 36px;
-                    margin-left: 50px;
-                }
-
-                #main {
-                    transition: margin-left .5s;
-                    padding: 16px;
-                }
-
-                @media screen and (max-height: 450px) {
-                    .sidenav {padding-top: 15px;}
-                    .sidenav a {font-size: 18px;}
-                }
-            </style>
-            {#{{ encore_entry_link_tags('app') }}#}
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
     <body>
+    {% block navBar %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">DevWebDino</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ path('home_page') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Portofolio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item text-success" href="{{ path('app_login') }}">Login</a></li>
+                                <li><a class="dropdown-item text-danger" href="{{ path('app_logout') }}">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{ path('security_signup') }}">Signup</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {% endblock %}
         {% block body %}
 
         {% endblock %}
+    {% block javascript %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
     </body>
 </html>

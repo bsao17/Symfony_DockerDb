@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SignupController!{% endblock %}
+
+{% block body %}
+    <div class="container card card-body">
+        {{ form_start(signupForm) }}
+        {{ form_errors(signupForm) }}
+        {{ form_widget(signupForm) }}
+        <button type="submit" class="btn btn-outline-info">Signup</button>
+        {{ form_help(signupForm) }}
+        {{ form_end(signupForm) }}
+    </div>
+{% endblock %}
